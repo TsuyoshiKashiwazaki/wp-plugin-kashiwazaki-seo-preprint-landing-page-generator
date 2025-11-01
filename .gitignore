@@ -1,0 +1,40 @@
+# Node.js
+node_modules/
+package-lock.json
+package.json
+npm-debug.log*
+yarn.lock
+
+# Development files
+playwright*.js
+*.backup
+*.bak
+*.old
+*.tmp
+*.log
+debug.log
+
+# WordPress
+wp-config-local.php
+.htaccess.backup
+
+# Distribution
+*.tar.gz
+*.zip
+gh_*/
+
+# Cache
+*.cache
+
+# OS files
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
