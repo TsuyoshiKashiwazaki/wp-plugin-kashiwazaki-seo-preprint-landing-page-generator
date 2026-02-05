@@ -3,7 +3,7 @@
  * Plugin Name: Kashiwazaki SEO Preprint Landing Page Generator
  * Plugin URI: https://www.tsuyoshikashiwazaki.jp
  * Description: Generates SEO-optimized dynamic landing pages for academic preprints via WordPress rewrite rules (NO static files)
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: 柏崎剛 (Tsuyoshi Kashiwazaki)
  * Author URI: https://www.tsuyoshikashiwazaki.jp/profile/
  * License: GPL-2.0-or-later
@@ -144,6 +144,15 @@ function plpm_disable_canonical_redirect( $redirect_url, $requested_url ) {
 add_action( 'add_meta_boxes_preprint_page', 'plpm_add_meta_boxes' );
 add_action( 'save_post_preprint_page', 'plpm_save_meta_box_data', 20 );
 add_action( 'before_delete_post', 'plpm_delete_associated_files' );
+
+// preprint_page の投稿URLを /paper/{ID}/ 形式に変換
+add_filter( 'post_type_link', 'plpm_preprint_post_type_link', 10, 4 );
+function plpm_preprint_post_type_link( $post_link, $post, $leavename, $sample ) {
+    if ( $post->post_type === 'preprint_page' && $post->post_status === 'publish' ) {
+        return home_url( '/paper/' . $post->ID . '/' );
+    }
+    return $post_link;
+}
 
 add_filter( 'manage_preprint_page_posts_columns', 'plpm_add_admin_columns' );
 add_action( 'manage_preprint_page_posts_custom_column', 'plpm_custom_column_content', 10, 2 );

@@ -4,6 +4,15 @@
 
 フォーマットは [Keep a Changelog](https://keepachangelog.com/ja/1.0.0/) に基づいており、このプロジェクトは[セマンティックバージョニング](https://semver.org/lang/ja/)に準拠しています。
 
+## [1.0.1] - 2026-02-05
+
+### 変更
+- プラグイン名を「Kashiwazaki SEO Preprint Landing Page Generator」に統一
+- 内部的なコード整理とコメントの最適化
+
+### 修正
+- 投稿URLが `/paper/{ID}/` 形式で正しく返されるよう `post_type_link` フィルターを追加
+
 ## [1.0.0] - 2025-11-01
 
 ### 追加
@@ -143,4 +152,5 @@
 - スパムボット対策（`antispambot()` でメール難読化）
 - ファイルアップロード検証
 
+[1.0.1]: https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-preprint-landing-page-generator/releases/tag/v1.0.1-dev
 [1.0.0]: https://github.com/TsuyoshiKashiwazaki/wp-plugin-kashiwazaki-seo-preprint-landing-page-generator/releases/tag/v1.0.0

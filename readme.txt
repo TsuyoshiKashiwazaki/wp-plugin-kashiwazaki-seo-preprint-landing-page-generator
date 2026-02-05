@@ -4,7 +4,7 @@ Tags: preprint, landing page, pdf, seo, academic, scholarly, static html, google
 Requires at least: 5.0
 Tested up to: 6.4
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -65,6 +65,11 @@ PDFファイルは `/paper/` ディレクトリに投稿IDをファイル名と�
 はい、DOI（Digital Object Identifier）の入力と表示に対応しています。
 
 == Changelog ==
+
+= 1.0.1 =
+* プラグイン名を「Kashiwazaki SEO Preprint Landing Page Generator」に統一
+* 内部的なコード整理とコメントの最適化
+* 投稿URLが `/paper/{ID}/` 形式で正しく返されるよう修正
 
 = 1.0.0 =
 * 初回リリース
