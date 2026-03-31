@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トラブルシューティング - Preprint LP Gen マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">Preprint LP Gen</h2>
+            <span class="version">v1.0.1</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="paper-management.html">論文管理</a></li>
+            <li><a href="citation-seo.html">引用エクスポート・SEO</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <h1>トラブルシューティング</h1>
+        <p class="lead">よくある問題とその解決方法をまとめています。</p>
+
+        <section>
+            <h2>よくある問題と解決策</h2>
+
+            <h3><code>/paper/</code> にアクセスすると404エラーが表示される</h3>
+            <p>原因: WordPressのリライトルールが正しく設定されていない可能性があります。</p>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>WordPress管理画面の「設定」→「パーマリンク」を開く</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p>何も変更せずに「変更を保存」をクリックしてリライトルールを再生成する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-body">
+                    <p>プラグインを一度無効化してから再度有効化する</p>
+                </div>
+            </div>
+            <div class="callout callout-tip">
+                <p>このプラグインはリライトルールの優先度を -99999 に設定しており、他のプラグインとの競合を最小限に抑えています。</p>
+            </div>
+
+            <h3>PDFビューアが表示されない</h3>
+            <p>原因: PDFファイルのURLが正しくないか、CORS（クロスオリジン）の制限によりPDFを読み込めません。</p>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>管理画面で論文の「PDF File URL」フィールドを確認し、URLが正しいか確認する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p>PDFファイルがWordPressメディアライブラリにアップロードされている場合は、メディアライブラリのURLを使用する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-body">
+                    <p>外部URLを使用する場合は、CORSヘッダーが適切に設定されていることを確認する</p>
+                </div>
+            </div>
+            <div class="callout callout-note">
+                <p>PDFビューアは4段階のフォールバック機構（PDF.js → Google Docs → Microsoft Office Online → 直接埋め込み）を持ち、各ビューアで最大3回リトライします。すべて失敗した場合はダウンロードリンクが表示されます。</p>
+            </div>
+
+            <h3>Google Scholarにインデックスされない</h3>
+            <p>原因: Google Scholarのクローラーが論文ページを正しく認識できていない可能性があります。</p>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>必須フィールド（Author Name、Publication Date、Publisher、Keywords、Abstract、PDF File URL）がすべて入力されていることを確認する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p>ページのHTMLソースで <code>citation_*</code> メタタグが正しく出力されていることをブラウザの開発者ツールで確認する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-body">
+                    <p>PDFファイルが <code>/paper/{ID}.pdf</code> のURLでアクセスできることを確認する（301リダイレクトで実際のPDFに転送されます）</p>
+                </div>
+            </div>
+            <div class="callout callout-warning">
+                <p>Google Scholarのインデックスには数週間から数ヶ月かかる場合があります。技術的な基準を満たしていても、即座にインデックスされるとは限りません。</p>
+            </div>
+
+            <h3>論文一覧ページに論文が表示されない</h3>
+            <p>原因: 投稿が「公開」状態になっていないか、必須フィールドが不足している可能性があります。</p>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>管理画面の投稿一覧で、該当する論文のステータスが「Published」であることを確認する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p>必須フィールドが6つすべて入力されていることを確認する（投稿一覧のステータス列で緑の「Dynamic Template」が表示されていれば正常）</p>
+                </div>
+            </div>
+            <div class="callout callout-tip">
+                <p>投稿を保存すると自動的に「公開」状態に設定されます。下書きや非公開状態では一覧ページに表示されません。</p>
+            </div>
+
+            <h3>サイトマップが生成されない</h3>
+            <p>原因: サイトマップ機能が無効になっているか、WordPress標準のサイトマップAPIとの連携に問題があります。</p>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>管理画面の「基本設定」で「サイトマップ生成」チェックボックスが有効であることを確認する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p><code>/paper/paper-sitemap.xml</code> にアクセスして応答を確認する</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-body">
+                    <p>「基本設定」ページの「サイトマップを再生成」ボタンをクリックする</p>
+                </div>
+            </div>
+            <div class="callout callout-note">
+                <p>サイトマップはWordPressのSitemap APIを使用して動的に生成されます。物理的なXMLファイルは作成されません。</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>動作要件</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:35%;">項目</th>
+                        <th>要件</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>WordPress</td>
+                        <td>5.0 以上</td>
+                    </tr>
+                    <tr>
+                        <td>PHP</td>
+                        <td>7.2 以上</td>
+                    </tr>
+                    <tr>
+                        <td>ブラウザ</td>
+                        <td>Chrome, Firefox, Safari, Edge（最新版）</td>
+                    </tr>
+                    <tr>
+                        <td>WordPressメディアライブラリ</td>
+                        <td>必須（PDF管理に使用）</td>
+                    </tr>
+                    <tr>
+                        <td>jQuery</td>
+                        <td>WordPress同梱版（メディアアップローダーに使用）</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>技術仕様</h2>
+            <ul>
+                <li><strong>データ保存:</strong> wp_postmeta テーブル（29個のカスタムフィールド）</li>
+                <li><strong>カスタム投稿タイプ:</strong> <code>preprint_page</code></li>
+                <li><strong>URL処理:</strong> WordPress Rewrite API（リライトルール優先度: -99999）</li>
+                <li><strong>テンプレート処理:</strong> <code>template_redirect</code> フック</li>
+                <li><strong>サイトマップ:</strong> WordPress wp_sitemaps API（PLPM_Sitemap_Provider）</li>
+                <li><strong>セキュリティ:</strong> nonce検証、capability チェック、sanitize_text_field / esc_url / wp_kses</li>
+                <li><strong>PDF配信:</strong> 301リダイレクト（実際のメディアURLへ転送）</li>
+                <li><strong>引用エクスポート:</strong> data:URI スキーム + rawurlencode（クライアントサイド処理）</li>
+                <li><strong>設定保存:</strong> wp_options（plpm_* キー）</li>
+                <li><strong>タイムゾーン:</strong> Asia/Tokyo（ISO8601日時生成時）</li>
+            </ul>
+        </section>
+
+        <figure class="infographic">
+            <img src="images/infographics/architecture.png" alt="プラグインのアーキテクチャ">
+            <figcaption>図: プラグインのアーキテクチャ</figcaption>
+        </figure>
+
+        <nav class="page-nav">
+            <a href="citation-seo.html" class="prev">&laquo; 引用エクスポート・SEO</a>
+            <span></span>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Preprint Landing Page Generator v1.0.1</p>
+        </footer>
+    </main>
+    <div class="lightbox"></div>
+    <script src="js/manual.js?v=1"></script>
+</body>
+</html>

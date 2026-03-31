@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>概要 - Preprint LP Gen マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">Preprint LP Gen</h2>
+            <span class="version">v1.0.1</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="paper-management.html">論文管理</a></li>
+            <li><a href="citation-seo.html">引用エクスポート・SEO</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <h1>Kashiwazaki SEO Preprint Landing Page Generator マニュアル</h1>
+        <img src="images/main-visual.png" alt="Preprint Landing Page Generator メインビジュアル" style="width:100%; border-radius:8px; margin-bottom:24px;">
+        <p class="lead">学術論文のプレプリント（査読前論文）のためのSEO最適化されたランディングページを、WordPressの動的ルーティングで自動生成するプラグインです。研究者や学術機関のWeb担当者を対象に、Google Scholar対応メタタグ、Schema.org構造化データ、複数引用形式エクスポートなど、学術コンテンツのSEOに必要な機能を網羅しています。</p>
+        <p>カスタム投稿タイプ <code>preprint_page</code> に論文メタデータを登録するだけで、JSON-LD構造化データ（ScholarlyArticle等5種類）、Google Scholar citation_*メタタグ（全17種類）、Dublin Core、OGP/Twitter Cardを含むランディングページが動的に生成されます。PDFリダイレクトやXMLサイトマップも自動で提供され、学術コンテンツの検索エンジン最適化とAI検索対応を同時に実現します。</p>
+
+        <section>
+            <h2>主要機能</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <h3>動的ランディングページ</h3>
+                    <p>WordPressのリライトルールにより、静的ファイルを一切生成せずに論文の個別ページ・一覧ページ・PDFリダイレクト・サイトマップをすべて動的に提供します。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>引用エクスポート</h3>
+                    <p>BibTeX、RIS、ReDIF、JSON、APA、MLA、Chicago、IEEEなど12種類の引用形式をワンクリックでエクスポート可能。data:URIスキームでサーバー負荷ゼロ。</p>
+                </div>
+                <div class="feature-card">
+                    <h3>学術SEO対応</h3>
+                    <p>Google Scholar citation_*メタタグ全17種類、Dublin Core、Schema.org JSON-LD、OGP、Twitter Cardを自動生成し、学術検索エンジンからの発見性を最大化します。</p>
+                </div>
+            </div>
+        </section>
+
+        <figure class="infographic">
+            <img src="images/infographics/overview-flow.png" alt="プラグイン全体のワークフロー">
+            <figcaption>図: プラグインの全体ワークフロー</figcaption>
+        </figure>
+
+        <section>
+            <h2>目次</h2>
+            <ul>
+                <li><a href="index.html">概要</a> - プラグインの概要と主要機能の紹介</li>
+                <li><a href="setup.html">インストール・初期設定</a> - インストール手順と基本設定の方法</li>
+                <li><a href="paper-management.html">論文管理</a> - カスタム投稿タイプでの論文情報の登録・管理</li>
+                <li><a href="citation-seo.html">引用エクスポート・SEO</a> - 12種類の引用形式とSEOメタデータの詳細</li>
+                <li><a href="troubleshooting.html">トラブルシューティング</a> - よくある問題と解決方法</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>SEO / GEO における強み</h2>
+            <p>本プラグインは、学術コンテンツの検索エンジン最適化（SEO）とGenerative Engine Optimization（GEO）の両面で効果を発揮する機能を実装しています。論文メタデータを登録するだけで、以下の構造化データとメタタグが自動的にHTMLへ出力されます。</p>
+
+            <h3>JSON-LD構造化データによるリッチリザルト対応</h3>
+            <p>Schema.orgに準拠したJSON-LD構造化データを各論文ページに自動出力します。ScholarlyArticle、TechArticle、Report、Article、WebPageの5種類のスキーマタイプに対応しており、論文の性質に応じて選択できます。著者情報（Person）、所属組織（Organization）、DOI（identifier）、要約、PDFファイル（MediaObject）など25以上のプロパティを含む詳細な構造化データにより、Google検索でのリッチリザルト表示の可能性が高まります。</p>
+
+            <h3>Google Scholar citation_*メタタグ</h3>
+            <p>Google Scholarのクローラーが論文を正確に認識するために必要なcitation_*メタタグを全17種類自動生成します。citation_title、citation_author、citation_publication_date、citation_pdf_url、citation_doi等の主要タグに加え、citation_keywords、citation_language、citation_publisher等も出力されます。これにより、論文がGoogle Scholarのインデックスに登録され、学術検索から発見される可能性が高まります。</p>
+
+            <h3>Dublin Coreメタデータ</h3>
+            <p>Dublin Core（DC.*）メタタグを自動出力することで、学術リポジトリやデジタルアーカイブとの互換性を確保します。DC.title、DC.creator、DC.date、DC.identifier等の標準的なメタデータにより、OAI-PMHなどのメタデータハーベスティングプロトコルからも論文情報が取得可能になります。</p>
+
+            <h3>OGP / Twitter Cardによるソーシャル共有最適化</h3>
+            <p>Open Graph Protocol（OGP）およびTwitter Cardメタタグを自動出力し、SNSでの論文共有時にタイトル・要約・画像が適切にプレビュー表示されるようにします。研究成果のソーシャルメディアでの拡散を促進します。</p>
+
+            <h3>動的XMLサイトマップ</h3>
+            <p>WordPress Sitemap APIを利用して、公開済みの論文ページを含む専用XMLサイトマップ（<code>/paper/paper-sitemap.xml</code>）を動的に生成します。新しい論文を公開するたびにサイトマップが自動更新され、検索エンジンのクローラーが論文ページを効率的に発見・インデックスできます。</p>
+
+            <h3>GEO（Generative Engine Optimization）への対応</h3>
+            <p>AI検索エンジン（Google AI Overview、Perplexity、ChatGPT検索等）は、構造化データを活用してコンテンツの意味を理解します。本プラグインが出力するJSON-LD構造化データには、著者名、所属、DOI、要約、キーワード、出版日、ライセンス情報など、論文の学術的メタデータが機械可読な形式で含まれています。これにより、AIが論文の内容・著者・引用関係を正確に把握しやすくなり、AI生成の回答において引用・参照される可能性が高まります。</p>
+        </section>
+
+        <section>
+            <h2>動作要件</h2>
+            <ul>
+                <li>WordPress 5.0 以上</li>
+                <li>PHP 7.2 以上</li>
+                <li>WordPressメディアライブラリ機能</li>
+            </ul>
+        </section>
+
+        <nav class="page-nav">
+            <span></span>
+            <a href="setup.html" class="next">インストール・初期設定 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Preprint Landing Page Generator v1.0.1</p>
+        </footer>
+    </main>
+    <div class="lightbox"></div>
+    <script src="js/manual.js?v=1"></script>
+</body>
+</html>

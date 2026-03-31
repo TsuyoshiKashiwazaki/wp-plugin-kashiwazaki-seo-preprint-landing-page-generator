@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>論文管理 - Preprint LP Gen マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">Preprint LP Gen</h2>
+            <span class="version">v1.0.1</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="paper-management.html">論文管理</a></li>
+            <li><a href="citation-seo.html">引用エクスポート・SEO</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <h1>論文管理</h1>
+        <p class="lead">カスタム投稿タイプ「Preprint Landing Page」を使って論文情報を登録・管理します。29個のメタフィールドで詳細な学術メタデータを設定できます。</p>
+
+        <section>
+            <h2>新規論文の登録</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>管理画面左メニュー「Preprint Landing Page」→「Add New」をクリック</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p>タイトルに論文名を入力（これがランディングページのh1になります）</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-body">
+                    <p>「Preprint Landing Page Metadata」メタボックスで各フィールドを入力</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">4</span>
+                <div class="step-body">
+                    <p>「公開」をクリックすると、<code>/paper/{投稿ID}/</code> でランディングページが自動生成されます</p>
+                </div>
+            </div>
+
+            <figure class="screenshot">
+                <img src="images/screenshots/03-new-post.png" alt="新規論文の登録画面" class="lightbox-trigger">
+                <figcaption>図: 新規論文の登録画面</figcaption>
+            </figure>
+        </section>
+
+        <section>
+            <h2>必須フィールド</h2>
+            <div class="callout callout-warning">
+                <p>以下の6つのフィールドは必須です。未入力の場合、ランディングページは正常に生成されません。</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:35%;">フィールド名</th>
+                        <th>説明</th>
+                        <th>入力例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Author Name（著者名）</td>
+                        <td>論文の著者名</td>
+                        <td>柏崎 剛</td>
+                    </tr>
+                    <tr>
+                        <td>Publication Date（公開日）</td>
+                        <td>論文の公開日（YYYY-MM-DD形式）</td>
+                        <td>2025-04-09</td>
+                    </tr>
+                    <tr>
+                        <td>Publisher（出版者）</td>
+                        <td>論文の出版元</td>
+                        <td>SEO対策研究室</td>
+                    </tr>
+                    <tr>
+                        <td>Keywords（キーワード）</td>
+                        <td>カンマ区切りのキーワード</td>
+                        <td>SEO対策,LSIキーワード,効果検証</td>
+                    </tr>
+                    <tr>
+                        <td>Abstract（要約）</td>
+                        <td>論文の要約文</td>
+                        <td>本研究は...</td>
+                    </tr>
+                    <tr>
+                        <td>PDF File URL（PDFファイル）</td>
+                        <td>PDFファイルのURL</td>
+                        <td>メディアライブラリから選択</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>オプションフィールド</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:35%;">フィールド名</th>
+                        <th>説明</th>
+                        <th>備考</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Contact Email</td>
+                        <td>連絡先メールアドレス</td>
+                        <td>論文ページに表示</td>
+                    </tr>
+                    <tr>
+                        <td>Author Affiliation Name</td>
+                        <td>著者の所属組織名</td>
+                        <td>リンク付きで表示</td>
+                    </tr>
+                    <tr>
+                        <td>Author Affiliation URL</td>
+                        <td>所属組織のURL</td>
+                        <td>Affiliation Nameと連動</td>
+                    </tr>
+                    <tr>
+                        <td>Author Personal URL</td>
+                        <td>著者の個人ページURL</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Google Scholar URL</td>
+                        <td>Google Scholarプロフィール</td>
+                        <td>著者名リンクに使用</td>
+                    </tr>
+                    <tr>
+                        <td>DOI</td>
+                        <td>デジタルオブジェクト識別子</td>
+                        <td>例: 10.6084/m9.figshare.28788476</td>
+                    </tr>
+                    <tr>
+                        <td>Modified Date</td>
+                        <td>更新日（YYYY-MM-DD）</td>
+                        <td>空欄の場合は公開日を使用</td>
+                    </tr>
+                    <tr>
+                        <td>Language Code</td>
+                        <td>言語コード</td>
+                        <td>デフォルト: en</td>
+                    </tr>
+                    <tr>
+                        <td>BibTeX Key</td>
+                        <td>BibTeX用の引用キー</td>
+                        <td>例: Kashiwazaki2025LSI</td>
+                    </tr>
+                    <tr>
+                        <td>References</td>
+                        <td>参考文献リスト</td>
+                        <td>1行に1件</td>
+                    </tr>
+                    <tr>
+                        <td>Version</td>
+                        <td>論文のバージョン</td>
+                        <td>例: 1.0.2</td>
+                    </tr>
+                    <tr>
+                        <td>License Name / URL</td>
+                        <td>ライセンス名とURL</td>
+                        <td>例: CC BY 4.0</td>
+                    </tr>
+                    <tr>
+                        <td>Schema.org Base Type</td>
+                        <td>スキーマタイプ</td>
+                        <td>ScholarlyArticle, TechArticle, Report, Article, WebPage</td>
+                    </tr>
+                    <tr>
+                        <td>Site Logo URL</td>
+                        <td>サイトロゴのURL</td>
+                        <td>JSON-LDに使用</td>
+                    </tr>
+                    <tr>
+                        <td>OG/Twitter Image URL</td>
+                        <td>SNSシェア画像のURL</td>
+                        <td>OGP/Twitter Cardに使用</td>
+                    </tr>
+                    <tr>
+                        <td>Twitter Site/Creator Handle</td>
+                        <td>Twitterアカウント</td>
+                        <td>Twitter Cardに使用</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>URL構造</h2>
+            <div class="callout callout-note">
+                <p>このプラグインは完全動的モードで動作します。物理的なファイルやディレクトリは一切作成されません。</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:30%;">URL</th>
+                        <th>内容</th>
+                        <th>例</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>/paper/</code></td>
+                        <td>論文一覧ページ</td>
+                        <td>http://example.com/paper/</td>
+                    </tr>
+                    <tr>
+                        <td><code>/paper/{ID}/</code></td>
+                        <td>個別論文ページ</td>
+                        <td>http://example.com/paper/19856/</td>
+                    </tr>
+                    <tr>
+                        <td><code>/paper/{ID}.pdf</code></td>
+                        <td>PDF直接ダウンロード（301リダイレクト）</td>
+                        <td>http://example.com/paper/19856.pdf</td>
+                    </tr>
+                    <tr>
+                        <td><code>/paper/paper-sitemap.xml</code></td>
+                        <td>XMLサイトマップ</td>
+                        <td>http://example.com/paper/paper-sitemap.xml</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <figure class="screenshot">
+                <img src="images/screenshots/04-paper-list.png" alt="フロントエンドの論文一覧ページ" class="lightbox-trigger">
+                <figcaption>図: フロントエンドの論文一覧ページ</figcaption>
+            </figure>
+        </section>
+
+        <figure class="infographic">
+            <img src="images/infographics/paper-management-flow.png" alt="論文登録から公開までの流れ">
+            <figcaption>図: 論文登録から公開までの流れ</figcaption>
+        </figure>
+
+        <nav class="page-nav">
+            <a href="setup.html" class="prev">&laquo; インストール・初期設定</a>
+            <a href="citation-seo.html" class="next">引用エクスポート・SEO &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Preprint Landing Page Generator v1.0.1</p>
+        </footer>
+    </main>
+    <div class="lightbox"></div>
+    <script src="js/manual.js?v=1"></script>
+</body>
+</html>

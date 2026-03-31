@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インストール・初期設定 - Preprint LP Gen マニュアル</title>
+    <link rel="stylesheet" href="css/style.css?v=1">
+</head>
+<body>
+    <button class="hamburger-btn" aria-label="メニューを開く">&#9776;</button>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2 style="color:#fff;">Preprint LP Gen</h2>
+            <span class="version">v1.0.1</span>
+            <img src="images/main-visual.png" alt="" style="width:100%;border-radius:4px;margin-top:8px;">
+        </div>
+        <ul>
+            <li><a href="index.html">概要</a></li>
+            <li><a href="setup.html">インストール・初期設定</a></li>
+            <li><a href="paper-management.html">論文管理</a></li>
+            <li><a href="citation-seo.html">引用エクスポート・SEO</a></li>
+            <li><a href="troubleshooting.html">トラブルシューティング</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <h1>インストール・初期設定</h1>
+        <p class="lead">プラグインのインストールから初期設定まで、ステップバイステップで解説します。</p>
+
+        <section>
+            <h2>インストール手順</h2>
+            <div class="step">
+                <span class="step-number">1</span>
+                <div class="step-body">
+                    <p>プラグインファイルを <code>/wp-content/plugins/kashiwazaki-seo-preprint-landing-page-generator/</code> にアップロードします。</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <div class="step-body">
+                    <p>WordPress管理画面の「プラグイン」メニューから有効化します。</p>
+                </div>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <div class="step-body">
+                    <p>左メニューに「Preprint Landing Page」が追加されます（dashicons-media-documentアイコン、「固定ページ」の下に表示）。</p>
+                </div>
+            </div>
+
+            <div class="callout callout-tip">
+                <p>有効化すると自動的にリライトルールが設定され、<code>/paper/</code> 配下のURLが動的に処理されます。物理的なディレクトリやファイルは一切作成されません。</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>管理画面の構成</h2>
+            <figure class="screenshot">
+                <img src="images/screenshots/01-post-list.png" alt="投稿一覧画面" class="lightbox-trigger">
+                <figcaption>投稿一覧画面</figcaption>
+            </figure>
+            <p>投稿一覧では、各論文のPDF URL、生成状態、キーワード、公開日、更新日がカラムで確認できます。</p>
+        </section>
+
+        <section>
+            <h2>基本設定</h2>
+            <figure class="screenshot">
+                <img src="images/screenshots/02-basic-settings.png" alt="基本設定画面" class="lightbox-trigger">
+                <figcaption>基本設定画面</figcaption>
+            </figure>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:30%;">設定項目</th>
+                        <th>説明</th>
+                        <th style="width:20%;">デフォルト値</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>リストページタイトル</td>
+                        <td>/paper/ ページのタイトル</td>
+                        <td>投稿論文一覧</td>
+                    </tr>
+                    <tr>
+                        <td>著者情報の表示</td>
+                        <td>論文ページに著者情報ボックスを表示</td>
+                        <td>有効</td>
+                    </tr>
+                    <tr>
+                        <td>サイトマップ生成</td>
+                        <td>論文ページ用XMLサイトマップを自動生成</td>
+                        <td>有効</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Citation Export設定</h2>
+            <p>個別論文ページのCitation Exportセクションに表示する引用形式を選択できます。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:35%;">形式名</th>
+                        <th>カテゴリ</th>
+                        <th>用途</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BibTeX</td>
+                        <td>書誌ツール</td>
+                        <td>LaTeX/Overleaf</td>
+                    </tr>
+                    <tr>
+                        <td>RIS</td>
+                        <td>書誌ツール</td>
+                        <td>EndNote/Mendeley/Zotero</td>
+                    </tr>
+                    <tr>
+                        <td>ReDIF</td>
+                        <td>書誌ツール</td>
+                        <td>RePEc（経済学）</td>
+                    </tr>
+                    <tr>
+                        <td>JSON</td>
+                        <td>書誌ツール</td>
+                        <td>カスタムツール</td>
+                    </tr>
+                    <tr>
+                        <td>HTML</td>
+                        <td>Web形式</td>
+                        <td>基本引用</td>
+                    </tr>
+                    <tr>
+                        <td>HTML + Abstract</td>
+                        <td>Web形式</td>
+                        <td>引用＋要約</td>
+                    </tr>
+                    <tr>
+                        <td>Plain Text</td>
+                        <td>Web形式</td>
+                        <td>基本テキスト</td>
+                    </tr>
+                    <tr>
+                        <td>Plain Text + Abstract</td>
+                        <td>Web形式</td>
+                        <td>テキスト＋要約</td>
+                    </tr>
+                    <tr>
+                        <td>APA Style</td>
+                        <td>引用スタイル</td>
+                        <td>心理学・社会科学</td>
+                    </tr>
+                    <tr>
+                        <td>MLA Style</td>
+                        <td>引用スタイル</td>
+                        <td>人文科学</td>
+                    </tr>
+                    <tr>
+                        <td>Chicago Style</td>
+                        <td>引用スタイル</td>
+                        <td>歴史学・出版</td>
+                    </tr>
+                    <tr>
+                        <td>IEEE Style</td>
+                        <td>引用スタイル</td>
+                        <td>工学・情報科学</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>デザインテーマ</h2>
+            <p>5種類のカラーテーマから選択可能です。論文ランディングページの外観をサイトに合わせてカスタマイズできます。</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:35%;">テーマ名</th>
+                        <th>説明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>デフォルト（ブルー）</td>
+                        <td>標準のブルー系カラースキーム</td>
+                    </tr>
+                    <tr>
+                        <td>オレンジ</td>
+                        <td>オレンジ系のアクセントカラー</td>
+                    </tr>
+                    <tr>
+                        <td>グリーン</td>
+                        <td>グリーン系のアクセントカラー</td>
+                    </tr>
+                    <tr>
+                        <td>パープル</td>
+                        <td>パープル系のアクセントカラー</td>
+                    </tr>
+                    <tr>
+                        <td>ダーク</td>
+                        <td>ダークモード対応カラースキーム</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <nav class="page-nav">
+            <a href="index.html" class="prev">&laquo; 概要</a>
+            <a href="paper-management.html" class="next">論文管理 &raquo;</a>
+        </nav>
+
+        <footer class="manual-footer">
+            <p>作者: <a href="https://www.tsuyoshikashiwazaki.jp/profile/" target="_blank" rel="noopener">柏崎剛（Tsuyoshi Kashiwazaki）</a></p>
+            <p>プラグイン: Kashiwazaki SEO Preprint Landing Page Generator v1.0.1</p>
+        </footer>
+    </main>
+    <div class="lightbox"></div>
+    <script src="js/manual.js?v=1"></script>
+</body>
+</html>
